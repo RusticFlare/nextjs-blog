@@ -1,9 +1,9 @@
 import Layout from '../components/layout'
 import Head from 'next/head'
-import Gallery from "react-photo-gallery";
+import Gallery from "react-photo-gallery"
 import { getAllPhotos } from '../lib/photos'
 
-export default function GalleryPage({allPhotosData}) {
+export default function GalleryPage({ allPhotosData }) {
   return (
     <Layout>
       <Head>
