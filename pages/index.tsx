@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import Layout, { siteTitle } from '../components/layout'
-import Gallery from "react-photo-gallery"
-import { getAllPhotos } from '../lib/photos'
+import Layout, { siteTitle } from 'components/layout'
+import ImageGallery from "components/image-gallery"
+import { getAllPhotos } from 'lib/photos'
 
 export default function Home({ allPhotosData }) {
   return (
@@ -9,7 +9,7 @@ export default function Home({ allPhotosData }) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <Gallery photos={allPhotosData} />
+      <ImageGallery photos={allPhotosData} />
     </Layout>
   )
 }
