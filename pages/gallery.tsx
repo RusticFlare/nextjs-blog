@@ -1,7 +1,7 @@
-import Layout from '../components/layout'
+import Layout from 'components/layout'
+import ImageGallery from 'components/image-gallery'
 import Head from 'next/head'
-import Gallery from "react-photo-gallery"
-import { getAllPhotos } from '../lib/photos'
+import { getAllPhotos } from 'lib/photos'
 
 export default function GalleryPage({ allPhotosData }) {
   return (
@@ -9,7 +9,7 @@ export default function GalleryPage({ allPhotosData }) {
       <Head>
         <title>Gallery</title>
       </Head>
-      <Gallery photos={allPhotosData} />
+      <ImageGallery photos={allPhotosData} />
     </Layout>
   )
 }
