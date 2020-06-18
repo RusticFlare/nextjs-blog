@@ -1,7 +1,7 @@
 import Layout from 'components/layout'
 import ImageGallery from 'components/image-gallery'
 import Head from 'next/head'
-import { getAllPhotos } from 'lib/photos'
+import { getAllPhotos } from 'lib/unsplash'
 
 export default function GalleryPage({ allPhotosData }) {
   return (
@@ -15,7 +15,7 @@ export default function GalleryPage({ allPhotosData }) {
 }
 
 export async function getStaticProps() {
-  const allPhotosData = getAllPhotos()
+  const allPhotosData = await getAllPhotos()
   return {
     props: {
       allPhotosData: allPhotosData
