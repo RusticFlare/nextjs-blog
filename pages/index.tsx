@@ -1,24 +1,24 @@
 import Head from 'next/head'
 import Layout, { siteTitle } from 'components/layout'
 import ImageGallery from "components/image-gallery"
-import { getAllPhotos } from 'lib/photos'
+import { getAllPhotos } from 'lib/graph-cms'
 
-export default function Home({ allPhotosData }) {
+export default function Home({ photos }) {
   return (
     <Layout home>
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <ImageGallery photos={allPhotosData} />
+      <ImageGallery photos={photos} />
     </Layout>
   )
 }
 
 export async function getStaticProps() {
-  const allPhotosData = getAllPhotos()
+  const photos = await getAllPhotos()
   return {
     props: {
-      allPhotosData: allPhotosData
+      photos: photos
     }
   }
 }
