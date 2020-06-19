@@ -24,7 +24,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const photos = await getAllPhotos()
+  const photos = await getAllPhotos(params.id as string)
   return {
     props: {
       photos
