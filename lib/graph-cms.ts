@@ -3,7 +3,7 @@ import 'cross-fetch/polyfill'
 
 const graphcms = new GraphQLClient(process.env.GRAPH_CMS_API)
 
-const query = `
+const allPhotosQuery = `
 {
   gallery(where: {name: "Photos"}) {
     images {
@@ -19,7 +19,7 @@ const query = `
 `
 
 export async function getAllPhotos() {
-  const { gallery } = await graphcms.request(query)
+  const { gallery } = await graphcms.request(allPhotosQuery)
 
   return gallery.images.map(image => ({
     src: image.src1600,
@@ -33,4 +33,24 @@ export async function getAllPhotos() {
     width: image.width,
     height: image.height,
   }))
+}
+
+const allGalleriesQuery = `
+{
+  galleries {
+    urlPath
+  }
+}
+`
+
+export async function getAllGalleryIds() {
+  const { galleries } = await graphcms.request(allGalleriesQuery)
+
+  return galleries.map(gallery => {
+    return {
+      params: {
+        id: gallery.urlPath
+      }
+    }
+  })
 }
