@@ -35,22 +35,41 @@ export async function getAllPhotos() {
   }))
 }
 
-const allGalleriesQuery = `
+const allGalleryIdsQuery = `
 {
   galleries {
-    urlPath
+    id: urlPath
   }
 }
 `
 
 export async function getAllGalleryIds() {
-  const { galleries } = await graphcms.request(allGalleriesQuery)
+  const { galleries } = await graphcms.request(allGalleryIdsQuery)
 
   return galleries.map(gallery => {
     return {
       params: {
-        id: gallery.urlPath
+        id: gallery.id
       }
     }
   })
+}
+
+const allGalleriesQuery = `
+{
+  galleries {
+    id: urlPath
+    image: mainImage {
+      handle
+      width
+      height
+    }
+  }
+}
+`
+
+export async function getAllGalleries() {
+  const { galleries } = await graphcms.request(allGalleriesQuery)
+
+  return galleries
 }

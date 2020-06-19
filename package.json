@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "date-fns": "^2.14.0",
+    "graphcms-image": "^1.1.0-beta4",
     "graphql-request": "^2.0.0",
     "gray-matter": "^4.0.2",
     "next": "9.3.5",
