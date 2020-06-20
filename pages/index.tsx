@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Layout, { siteTitle } from 'components/layout'
+import Layout from 'components/layout'
 import { getAllGalleries, getPerson } from 'lib/graph-cms'
 import GraphImage from 'graphcms-image'
 import Link from 'next/link'
@@ -8,7 +8,7 @@ export default function Home({ galleries, person }) {
   return (
     <Layout person={person} home>
       <Head>
-        <title>{siteTitle}</title>
+        <title>{person.name}</title>
       </Head>
       <div
         style={{

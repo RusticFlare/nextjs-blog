@@ -6,6 +6,7 @@ const graphcms = new GraphQLClient(process.env.GRAPH_CMS_API)
 const allPhotosQuery = `
 query ($slug: String) {
   gallery(where: {slug: $slug}) {
+    name
     images {
       src1600: url(transformation: {image: {resize: {width: 1600, fit: max}}})
       src1024: url(transformation: {image: {resize: {width: 1024, fit: max}}})
@@ -18,21 +19,20 @@ query ($slug: String) {
 }
 `
 
-export async function getAllPhotos(slug: string) {
+export async function getGallery(slug: string) {
   const { gallery } = await graphcms.request(allPhotosQuery, { slug: slug })
 
-  return gallery.images.map(image => ({
-    src: image.src1600,
-    srcSet: [
+  gallery.images.forEach(image => {
+    image.src = image.src1600
+    image.srcSet = [
       image.src500 + " " + Math.min(500, image.width)  + "w",
       image.src800 + " " + Math.min(800, image.width)  + "w",
       image.src1024 + " " + Math.min(1024, image.width)  + "w",
       image.src1600 + " " + Math.min(1600, image.width)  + "w",
-    ],
-    sizes: ["(min-width: 480px) 50vw,(min-width: 1024px) 33.3vw,100vw"],
-    width: image.width,
-    height: image.height,
-  }))
+    ]
+    image.sizes = ["(min-width: 480px) 50vw,(min-width: 1024px) 33.3vw,100vw"]
+  })
+  return gallery
 }
 
 const allGalleriesQuery = `
