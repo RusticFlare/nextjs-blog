@@ -18,13 +18,9 @@ export default function Gallery({ photos, person }) {
 export const getStaticPaths: GetStaticPaths = async () => {
   const galleries = await getAllGalleries()
   return {
-    paths: galleries.map(gallery => {
-      return {
-        params: {
-          slug: gallery.slug
-        }
-      }
-    }),
+    paths: galleries.map(gallery => ({
+      params: gallery
+    })),
     fallback: false
   }
 }
