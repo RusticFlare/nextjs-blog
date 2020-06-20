@@ -1,12 +1,12 @@
 import Head from 'next/head'
 import Layout, { siteTitle } from 'components/layout'
 import ImageGallery from "components/image-gallery"
-import { getAllPhotos, getAllGalleryIds } from 'lib/graph-cms'
+import { getAllPhotos, getAllGalleryIds, getPerson } from 'lib/graph-cms'
 import { GetStaticProps, GetStaticPaths } from 'next'
 
-export default function Gallery({ photos }) {
+export default function Gallery({ photos, person }) {
   return (
-    <Layout>
+    <Layout person={person}>
       <Head>
         <title>A Gallery</title>
       </Head>
@@ -24,10 +24,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const person = await getPerson()
   const photos = await getAllPhotos(params.id as string)
   return {
     props: {
-      photos
+      photos,
+      person
     }
   }
 }

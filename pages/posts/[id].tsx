@@ -4,18 +4,24 @@ import Head from 'next/head'
 import Date from 'components/date'
 import utilStyles from 'styles/utils.module.css'
 import { GetStaticProps, GetStaticPaths } from 'next'
+import { getPerson } from 'lib/graph-cms'
 
 export default function Post({
-  postData
+  postData,
+  person
 }: {
   postData: {
     title: string
     date: string
     contentHtml: string
   }
+  person: {
+    name: string,
+    profilePicture: { handle: string, width: number, height: number } 
+  }
 }) {
   return (
-    <Layout>
+    <Layout person={person}>
       <Head>
         <title>{postData.title}</title>
       </Head>
@@ -40,9 +46,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const postData = await getPostData(params.id as string)
+  const person = await getPerson()
   return {
     props: {
-      postData
+      postData,
+      person
     }
   }
 }

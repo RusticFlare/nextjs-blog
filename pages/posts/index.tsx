@@ -4,10 +4,11 @@ import utilStyles from 'styles/utils.module.css'
 import { getSortedPostsData } from 'lib/posts'
 import Link from 'next/link'
 import Date from 'components/date'
+import { getPerson } from 'lib/graph-cms'
 
-export default function Posts({ allPostsData }) {
+export default function Posts({ allPostsData, person }) {
   return (
-    <Layout>
+    <Layout person={person}>
       <Head>
         <title>Posts</title>
       </Head>
@@ -33,9 +34,11 @@ export default function Posts({ allPostsData }) {
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData()
+  const person = await getPerson()
   return {
     props: {
-      allPostsData
+      allPostsData,
+      person
     }
   }
 }
