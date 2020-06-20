@@ -39,6 +39,7 @@ export default function Layout({
               image={person.profilePicture}
               className={`${styles.headerHomeImage} ${utilStyles.borderCircle}`}
               alt={person.name}
+              maxWidth={400}
             />
             <h1 className={utilStyles.heading2Xl}>{person.name}</h1>
           </>
@@ -50,6 +51,7 @@ export default function Layout({
                   image={person.profilePicture}
                   className={`${styles.headerImage} ${utilStyles.borderCircle}`}
                   alt={person.name}
+                  maxWidth={300}
                 />
               </a>
             </Link>
