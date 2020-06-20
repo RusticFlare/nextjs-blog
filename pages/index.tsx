@@ -22,15 +22,36 @@ export default function Home({ galleries }) {
         {galleries.map(gallery => (
           <Link href="/galleries/[id]" as={`/galleries/${gallery.id}`} >
             <a>
-              <GraphImage
-                image={gallery.image}
-                maxWidth={500}
+              <div 
                 style={{
+                  position: 'relative',
                   width: '18rem',
                   height: '18rem',
                   margin: '32px 16px',
+                  alignItems: 'center',
+                  justifyContent: 'center',
                 }}
-              />
+              >
+                <GraphImage
+                  image={gallery.image}
+                  maxWidth={500}
+                  style={{
+                    width: '18rem',
+                    height: '18rem',
+                  }}
+                />
+                <h2 
+                  style={{
+                    color: 'white',
+                    position: 'absolute',
+                    bottom: '-4rem',
+                    left: '1rem',
+                    fontSize: '4rem',
+                  }}
+                >
+                  {gallery.name}
+                </h2>
+              </div>
             </a>
           </Link>
         ))}
