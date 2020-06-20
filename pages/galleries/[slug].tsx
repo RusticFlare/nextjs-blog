@@ -21,7 +21,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     paths: galleries.map(gallery => {
       return {
         params: {
-          id: gallery.id
+          slug: gallery.slug
         }
       }
     }),
@@ -31,7 +31,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const person = await getPerson()
-  const photos = await getAllPhotos(params.id as string)
+  const photos = await getAllPhotos(params.slug as string)
   return {
     props: {
       photos,

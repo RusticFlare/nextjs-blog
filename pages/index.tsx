@@ -20,7 +20,7 @@ export default function Home({ galleries, person }) {
         }}
       >
         {galleries.map(gallery => (
-          <Link href="/galleries/[id]" as={`/galleries/${gallery.id}`} >
+          <Link href="/galleries/[slug]" as={`/galleries/${gallery.slug}`} >
             <a>
               <div 
                 style={{
