@@ -59,6 +59,7 @@ const allGalleriesQuery = `
 {
   galleries {
     id: urlPath
+    name
     image: mainImage {
       handle
       width
