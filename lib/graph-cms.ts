@@ -36,26 +36,6 @@ export async function getAllPhotos(id: string) {
   }))
 }
 
-const allGalleryIdsQuery = `
-{
-  galleries {
-    id: urlPath
-  }
-}
-`
-
-export async function getAllGalleryIds() {
-  const { galleries } = await graphcms.request(allGalleryIdsQuery)
-
-  return galleries.map(gallery => {
-    return {
-      params: {
-        id: gallery.id
-      }
-    }
-  })
-}
-
 const allGalleriesQuery = `
 {
   galleries {
