@@ -20,15 +20,59 @@ export default function ImageGallery({ photos }: { photos: {
     setViewerIsOpen(false);
   };
 
+  const navButtonStyles = base => ({
+    ...base,
+    backgroundColor: 'white',
+    boxShadow: '0 1px 6px rgba(0, 0, 0, 0.18)',
+    color: '#6B778C',
+  
+    '&:hover, &:active': {
+      backgroundColor: 'white',
+      color: '#091E42',
+      opacity: 1,
+    },
+    '&:active': {
+      boxShadow: '0 1px 3px rgba(0, 0, 0, 0.14)',
+      transform: 'scale(0.96)',
+    },
+  });
+
   return (
     <div>
       <Gallery photos={photos} onClick={openLightbox} />
       <ModalGateway>
         {viewerIsOpen ? (
-          <Modal onClose={closeLightbox}>
+          <Modal 
+            onClose={closeLightbox}
+            styles={{
+              blanket: base => ({
+                ...base,
+                backgroundColor: 'rgba(255,255,255,0.85)',
+              }),
+            }}
+          >
             <Carousel
               currentIndex={currentImage}
               views={photos.map(x => ({source: x.src}))}
+              styles={{
+                container: base => ({
+                  ...base,
+                  height: '100vh',
+                }),
+                view: base => ({
+                  ...base,
+                  alignItems: 'center',
+                  display: 'flex ',
+                  height: '100vh',
+                  justifyContent: 'center',
+
+                  '& > img': {
+                    maxHeight: '100vh',
+                  },
+                }),
+                navigationPrev: navButtonStyles,
+                navigationNext: navButtonStyles,
+              }}
             />
           </Modal>
         ) : null}
