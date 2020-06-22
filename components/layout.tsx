@@ -3,11 +3,11 @@ import styles from './layout.module.css'
 import utilStyles from 'styles/utils.module.css'
 import Link from 'next/link'
 import GraphImage from 'graphcms-image'
-import {SocialMediaIconsReact} from 'social-media-icons-react';
+import SocialLinks from 'components/social-links'
 
 export default function Layout({
   children,
-  person ,
+  person,
   home,
 }: {
   children: React.ReactNode
@@ -15,6 +15,7 @@ export default function Layout({
     name: string
     profilePicture: { handle: string, width: number, height: number }
     openGraphImage: { url: string }
+    socialMediaProfiles: { socialMedia: string, url: string }[]
   }
   home?: boolean
 }) {
@@ -44,7 +45,7 @@ export default function Layout({
             />
             <div style={{display: 'flex', flexDirection: 'column', paddingLeft: '1rem'}}>
               <h1 className={utilStyles.heading2Xl}>{person.name}</h1>
-              <SocialMediaIconsReact borderColor="rgba(0,0,0,0)" icon="instagram" iconColor="rgba(0,0,0,1)" backgroundColor="rgba(0,0,0,0)" iconSize="10" url="https://www.instagram.com/james.dudley.baker/" size="20" />
+              <SocialLinks socialMediaProfiles={person.socialMediaProfiles}/>
             </div>
           </div>
         ) : (
@@ -65,7 +66,7 @@ export default function Layout({
                   <a className={utilStyles.colorInherit}>{person.name}</a>
                 </Link>
               </h2>
-              <SocialMediaIconsReact borderColor="rgba(0,0,0,0)" icon="instagram" iconColor="rgba(0,0,0,1)" backgroundColor="rgba(0,0,0,0)" iconSize="10" url="https://www.instagram.com/james.dudley.baker/" size="20" />
+              <SocialLinks socialMediaProfiles={person.socialMediaProfiles}/>
             </div>
           </div>
         )}
