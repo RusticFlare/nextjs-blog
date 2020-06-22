@@ -17,7 +17,8 @@ export default function Post({
   }
   person: {
     name: string,
-    profilePicture: { handle: string, width: number, height: number } 
+    profilePicture: { handle: string, width: number, height: number }
+    openGraphImage: { url: string }
   }
 }) {
   return (
