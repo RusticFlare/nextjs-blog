@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Layout, { siteTitle } from 'components/layout'
+import Layout from 'components/layout'
 import ImageGallery from "components/image-gallery"
 import { getGallery, getAllGalleries, getPerson } from 'lib/graph-cms'
 import { GetStaticProps, GetStaticPaths } from 'next'
