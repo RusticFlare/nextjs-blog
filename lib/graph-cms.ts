@@ -37,20 +37,22 @@ export async function getGallery(slug: string) {
 
 const allGalleriesQuery = `
 query ($personId: ID) {
-  galleries(where: {person: {id: $personId}}) {
-    slug
-    name
-    image: mainImage {
-      handle
-      width
-      height
+  person(where: {id: $personId}) {
+    galleries {
+      slug
+      name
+      image: mainImage {
+        handle
+        width
+        height
+      }
     }
   }
 }
 `
 
 export async function getAllGalleries() {
-  const { galleries } = await graphcms.request(allGalleriesQuery, { personId: process.env.PERSON_ID })
+  const { person: { galleries} } = await graphcms.request(allGalleriesQuery, { personId: process.env.PERSON_ID })
 
   return galleries
 }
