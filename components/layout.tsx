@@ -43,8 +43,8 @@ export default function Layout({
               alt={person.name}
               maxWidth={400}
             />
-          <div style={{flexDirection: 'column', paddingLeft: '1rem', alignItems: 'center', display: 'flex', justifyContent: 'center'}}>
-            <h1 className={utilStyles.headingLg}>{person.name}</h1>
+          <div style={{display: 'flex', flexDirection: 'column', paddingLeft: '1rem', alignItems: 'center', justifyContent: 'center'}}>
+            <h1 className={utilStyles.headingLg} style={{margin: '0'}}>{person.name}</h1>
             <SocialLinks socialMediaProfiles={person.socialMediaProfiles}/>
           </div>
         </div>
@@ -60,8 +60,8 @@ export default function Layout({
                 />
               </a>
             </Link>
-            <div style={{display: 'flex', flexDirection: 'column', paddingLeft: '1rem'}}>
-              <h2 className={utilStyles.headingLg}>
+            <div style={{display: 'flex', flexDirection: 'column', paddingLeft: '1rem', alignItems: 'center', justifyContent: 'center'}}>
+              <h2 className={utilStyles.headingLg} style={{margin: '0'}}>
                 <Link href="/">
                   <a className={utilStyles.colorInherit}>{person.name}</a>
                 </Link>
