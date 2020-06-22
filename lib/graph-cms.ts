@@ -69,6 +69,10 @@ query ($id: ID) {
     openGraphImage {
       url(transformation: {image: {resize: {width: 1200, height: 1200, fit: crop}}})
     }
+    socialMediaProfiles {
+      socialMedia
+      url
+    }
   }
 }
 `

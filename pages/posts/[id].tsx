@@ -19,6 +19,7 @@ export default function Post({
     name: string,
     profilePicture: { handle: string, width: number, height: number }
     openGraphImage: { url: string }
+    socialMediaProfiles: { socialMedia: string, url: string }[]
   }
 }) {
   return (
