@@ -27,7 +27,7 @@ export default function Home({ galleries, person }) {
                   position: 'relative',
                   width: '20rem',
                   height: '20rem',
-                  margin: '32px 16px',
+                  margin: '16px',
                   alignItems: 'center',
                   justifyContent: 'center',
                 }}
