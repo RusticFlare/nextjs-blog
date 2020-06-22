@@ -25,8 +25,8 @@ export default function Home({ galleries, person }) {
               <div 
                 style={{
                   position: 'relative',
-                  width: '18rem',
-                  height: '18rem',
+                  width: '20rem',
+                  height: '20rem',
                   margin: '32px 16px',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -36,15 +36,16 @@ export default function Home({ galleries, person }) {
                   image={gallery.image}
                   maxWidth={500}
                   style={{
-                    width: '18rem',
-                    height: '18rem',
+                    width: '20rem',
+                    height: '20rem',
                   }}
+                  transforms={['modulate=brightness:85']}
                 />
                 <h2 
                   style={{
                     color: 'white',
                     position: 'absolute',
-                    bottom: '-4rem',
+                    bottom: '-3.5rem',
                     left: '1rem',
                     fontSize: '4rem',
                   }}
