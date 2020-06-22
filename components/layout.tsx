@@ -43,11 +43,11 @@ export default function Layout({
               alt={person.name}
               maxWidth={400}
             />
-            <div style={{display: 'flex', flexDirection: 'column', paddingLeft: '1rem'}}>
-              <h1 className={utilStyles.heading2Xl}>{person.name}</h1>
-              <SocialLinks socialMediaProfiles={person.socialMediaProfiles}/>
-            </div>
+          <div style={{flexDirection: 'column', paddingLeft: '1rem', alignItems: 'center', display: 'flex', justifyContent: 'center'}}>
+            <h1 className={utilStyles.headingLg}>{person.name}</h1>
+            <SocialLinks socialMediaProfiles={person.socialMediaProfiles}/>
           </div>
+        </div>
         ) : (
           <div style={{display: 'flex'}}>
             <Link href="/">
