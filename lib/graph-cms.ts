@@ -1,7 +1,7 @@
 import { GraphQLClient } from 'graphql-request'
 import 'cross-fetch/polyfill'
 
-const graphcms = new GraphQLClient(process.env.GRAPH_CMS_API)
+const graphcms = new GraphQLClient(process.env.GRAPH_CMS_API, { headers: { authorization: `Bearer ${process.env.GRAPH_CMS_TOKEN}`} })
 
 const allPhotosQuery = `
 query ($slug: String) {

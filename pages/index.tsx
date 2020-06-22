@@ -22,7 +22,7 @@ export default function Home({ galleries, person }) {
         {galleries.map(gallery => (
           <Link href="/galleries/[slug]" as={`/galleries/${gallery.slug}`} >
             <a>
-              <div 
+              <div
                 style={{
                   position: 'relative',
                   width: '20rem',
@@ -41,7 +41,7 @@ export default function Home({ galleries, person }) {
                   }}
                   transforms={['modulate=brightness:85']}
                 />
-                <h2 
+                <h2
                   style={{
                     color: 'white',
                     position: 'absolute',
