@@ -3,6 +3,7 @@ import styles from './layout.module.css'
 import utilStyles from 'styles/utils.module.css'
 import Link from 'next/link'
 import GraphImage from 'graphcms-image'
+import {SocialMediaIconsReact} from 'social-media-icons-react';
 
 export default function Layout({
   children,
@@ -34,17 +35,20 @@ export default function Layout({
       </Head>
       <header className={styles.header}>
         {home ? (
-          <>
+          <div style={{display: 'flex'}}>
             <GraphImage
               image={person.profilePicture}
               className={`${styles.headerHomeImage} ${utilStyles.borderCircle}`}
               alt={person.name}
               maxWidth={400}
             />
-            <h1 className={utilStyles.heading2Xl}>{person.name}</h1>
-          </>
+            <div style={{display: 'flex', flexDirection: 'column', paddingLeft: '1rem'}}>
+              <h1 className={utilStyles.heading2Xl}>{person.name}</h1>
+              <SocialMediaIconsReact borderColor="rgba(0,0,0,0)" icon="instagram" iconColor="rgba(0,0,0,1)" backgroundColor="rgba(0,0,0,0)" iconSize="10" url="https://www.instagram.com/james.dudley.baker/" size="20" />
+            </div>
+          </div>
         ) : (
-          <>
+          <div style={{display: 'flex'}}>
             <Link href="/">
               <a>
                 <GraphImage
@@ -55,12 +59,15 @@ export default function Layout({
                 />
               </a>
             </Link>
-            <h2 className={utilStyles.headingLg}>
-              <Link href="/">
-                <a className={utilStyles.colorInherit}>{person.name}</a>
-              </Link>
-            </h2>
-          </>
+            <div style={{display: 'flex', flexDirection: 'column', paddingLeft: '1rem'}}>
+              <h2 className={utilStyles.headingLg}>
+                <Link href="/">
+                  <a className={utilStyles.colorInherit}>{person.name}</a>
+                </Link>
+              </h2>
+              <SocialMediaIconsReact borderColor="rgba(0,0,0,0)" icon="instagram" iconColor="rgba(0,0,0,1)" backgroundColor="rgba(0,0,0,0)" iconSize="10" url="https://www.instagram.com/james.dudley.baker/" size="20" />
+            </div>
+          </div>
         )}
       </header>
       <main>{children}</main>
