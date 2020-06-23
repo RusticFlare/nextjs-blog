@@ -11,7 +11,7 @@ export default function Layout({
   home,
 }: {
   children: React.ReactNode
-  person: { 
+  person: {
     name: string
     profilePicture: { handle: string, width: number, height: number }
     openGraphImage: { url: string }
@@ -20,7 +20,7 @@ export default function Layout({
   home?: boolean
 }) {
   return (
-    <div className={styles.container}>
+    <div className={home ? styles.containerHome : styles.container}>
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
