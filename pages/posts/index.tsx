@@ -1,12 +1,11 @@
 import Head from 'next/head'
 import Layout from 'components/layout'
 import utilStyles from 'styles/utils.module.css'
-import { getSortedPostsData } from 'lib/posts'
 import Link from 'next/link'
 import Date from 'components/date'
-import { getPerson } from 'lib/graph-cms'
+import { getPerson, getAllPosts } from 'lib/graph-cms'
 
-export default function Posts({ allPostsData, person }) {
+export default function Posts({ posts, person }) {
   return (
     <Layout person={person}>
       <Head>
@@ -15,14 +14,14 @@ export default function Posts({ allPostsData, person }) {
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
-              <Link href="/posts/[id]" as={`/posts/${id}`}>
+          {posts.map(({ slug, title, publishedAt }) => (
+            <li className={utilStyles.listItem} key={slug}>
+              <Link href="/posts/[slug]" as={`/posts/${slug}`}>
                 <a>{title}</a>
               </Link>
               <br />
               <small className={utilStyles.lightText}>
-                <Date dateString={date} />
+                <Date dateString={publishedAt} />
               </small>
             </li>
           ))}
@@ -33,11 +32,11 @@ export default function Posts({ allPostsData, person }) {
 }
 
 export async function getStaticProps() {
-  const allPostsData = getSortedPostsData()
+  const posts = await getAllPosts()
   const person = await getPerson()
   return {
     props: {
-      allPostsData,
+      posts,
       person
     }
   }

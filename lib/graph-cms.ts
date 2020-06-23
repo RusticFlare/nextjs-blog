@@ -1,5 +1,7 @@
 import { GraphQLClient } from 'graphql-request'
 import 'cross-fetch/polyfill'
+import remark from 'remark'
+import html from 'remark-html'
 
 const graphcms = new GraphQLClient(process.env.GRAPH_CMS_API, { headers: { authorization: `Bearer ${process.env.GRAPH_CMS_TOKEN}`} })
 
@@ -35,6 +37,31 @@ export async function getGallery(slug: string) {
   return gallery
 }
 
+const postQuery = `
+query ($slug: String) {
+  post: blogPost(where: {slug: $slug}) {
+    title
+    content
+    publishedAt
+  }
+}
+`
+
+export async function getPost(slug: string) {
+  const { post } = await graphcms.request(postQuery, { slug: slug })
+
+  const processedContent = await remark()
+    .use(html)
+    .process(post.content)
+  const contentHtml = processedContent.toString()
+
+  return ({
+    contentHtml,
+    title: post.title,
+    publishedAt: post.publishedAt,
+  })
+}
+
 const allGalleriesQuery = `
 query ($personId: ID) {
   person(where: {id: $personId}) {
@@ -55,6 +82,24 @@ export async function getAllGalleries() {
   const { person: { galleries} } = await graphcms.request(allGalleriesQuery, { personId: process.env.PERSON_ID })
 
   return galleries
+}
+
+const allPostsQuery = `
+query ($personId: ID) {
+  person(where: {id: $personId}) {
+    posts: blogPosts {
+      title
+      slug
+      publishedAt
+    }
+  }
+}
+`
+
+export async function getAllPosts() {
+  const { person: { posts } } = await graphcms.request(allPostsQuery, { personId: process.env.PERSON_ID })
+
+  return posts
 }
 
 const profileQuery = `
