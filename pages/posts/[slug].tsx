@@ -31,7 +31,7 @@ export default function Post({
         <div className={utilStyles.lightText}>
           <Date dateString={post.publishedAt} />
         </div>
-        <div dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
+        <div className={utilStyles.blog} dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
       </article>
     </Layout>
   )
