@@ -1,18 +1,17 @@
 import Layout from 'components/layout'
-import { getAllPostIds, getPostData } from 'lib/posts'
 import Head from 'next/head'
 import Date from 'components/date'
 import utilStyles from 'styles/utils.module.css'
 import { GetStaticProps, GetStaticPaths } from 'next'
-import { getPerson } from 'lib/graph-cms'
+import { getPerson, getAllPosts, getPost } from 'lib/graph-cms'
 
 export default function Post({
-  postData,
+  post,
   person
 }: {
-  postData: {
+  post: {
     title: string
-    date: string
+    publishedAt: string
     contentHtml: string
   }
   person: {
@@ -25,33 +24,35 @@ export default function Post({
   return (
     <Layout person={person}>
       <Head>
-        <title>{postData.title}</title>
+        <title>{post.title}</title>
       </Head>
       <article>
-        <h1 className={utilStyles.headingXl}>{postData.title}</h1>
+        <h1 className={utilStyles.headingXl}>{post.title}</h1>
         <div className={utilStyles.lightText}>
-          <Date dateString={postData.date} />
+          <Date dateString={post.publishedAt} />
         </div>
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        <div dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
       </article>
     </Layout>
   )
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = getAllPostIds()
+  const posts = await getAllPosts()
   return {
-    paths,
+    paths: posts.map(post => ({
+      params: post
+    })),
     fallback: false
   }
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const postData = await getPostData(params.id as string)
+  const post = await getPost(params.slug as string)
   const person = await getPerson()
   return {
     props: {
-      postData,
+      post,
       person
     }
   }
