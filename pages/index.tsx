@@ -21,38 +21,34 @@ export default function Home({ galleries, person }) {
       >
         {galleries.map(gallery => (
           <Link href="/galleries/[slug]" as={`/galleries/${gallery.slug}`} >
-            <a>
-              <div
-                style={{
+            <a style={{
                   position: 'relative',
-                  width: '20rem',
-                  height: '20rem',
-                  margin: '16px',
+                  width: '100%',
+                  height: '10rem',
+                  marginBottom: '16px',
                   alignItems: 'center',
                   justifyContent: 'center',
+            }}>
+              <GraphImage
+                image={gallery.image}
+                maxWidth={500}
+                style={{
+                  width: '100%',
+                  height: '10rem',
+                }}
+                transforms={['modulate=brightness:85']}
+              />
+              <h2
+                style={{
+                  color: 'white',
+                  position: 'absolute',
+                  bottom: '-3.5rem',
+                  left: '1rem',
+                  fontSize: '4rem',
                 }}
               >
-                <GraphImage
-                  image={gallery.image}
-                  maxWidth={500}
-                  style={{
-                    width: '20rem',
-                    height: '20rem',
-                  }}
-                  transforms={['modulate=brightness:85']}
-                />
-                <h2
-                  style={{
-                    color: 'white',
-                    position: 'absolute',
-                    bottom: '-3.5rem',
-                    left: '1rem',
-                    fontSize: '4rem',
-                  }}
-                >
-                  {gallery.name}
-                </h2>
-              </div>
+                {gallery.name}
+              </h2>
             </a>
           </Link>
         ))}
