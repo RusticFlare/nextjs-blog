@@ -90,7 +90,11 @@ query ($personId: ID) {
     posts: blogPosts {
       title
       slug
-      publishedAt
+      image: linkImage {
+        handle
+        width
+        height
+      }
     }
   }
 }
