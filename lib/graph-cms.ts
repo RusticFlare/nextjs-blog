@@ -118,6 +118,16 @@ query ($id: ID) {
       socialMedia
       url
     }
+    blogImage {
+      handle
+      width
+      height
+    }
+    galleryImage {
+      handle
+      width
+      height
+    }
   }
 }
 `
