@@ -68,7 +68,7 @@ query ($personId: ID) {
     galleries {
       slug
       name
-      image: mainImage {
+      image: linkImage {
         handle
         width
         height
