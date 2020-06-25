@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Text from 'react'
 import styles from './layout.module.css'
 import utilStyles from 'styles/utils.module.css'
 import Link from 'next/link'
@@ -11,7 +12,7 @@ export default function Layout({
   home,
 }: {
   children: React.ReactNode
-  person: { 
+  person: {
     name: string
     profilePicture: { handle: string, width: number, height: number }
     openGraphImage: { url: string }
@@ -60,7 +61,20 @@ export default function Layout({
                 />
               </a>
             </Link>
-            <div style={{display: 'flex', flexDirection: 'column', paddingLeft: '1rem', alignItems: 'center', justifyContent: 'center'}}>
+            <div  style={{display: 'flex', flexDirection: 'column', paddingLeft: '1rem', alignItems: 'center', justifyContent: 'center'}}>
+              <div  style={{fontWeight: 'bold'}}>
+                <Link href="/">
+                  <a className={utilStyles.colorInherit}>Home</a>
+                </Link>
+                {" | "}
+                <Link href="/galleries">
+                  <a className={utilStyles.colorInherit}>Gallery</a>
+                </Link>
+                {" | "}
+                <Link href="/posts">
+                  <a className={utilStyles.colorInherit}>Blog</a>
+                </Link>
+              </div>
               <h2 className={utilStyles.headingLg} style={{margin: '0'}}>
                 <Link href="/">
                   <a className={utilStyles.colorInherit}>{person.name}</a>
@@ -72,13 +86,6 @@ export default function Layout({
         )}
       </header>
       <main>{children}</main>
-      {!home && (
-        <div className={styles.backToHome}>
-          <Link href="/">
-            <a>← Back to home</a>
-          </Link>
-        </div>
-      )}
     </div>
   )
 }
