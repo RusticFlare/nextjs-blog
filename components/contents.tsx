@@ -47,9 +47,10 @@ export default function Contents({
             style={{
               color: 'white',
               position: 'absolute',
-              bottom: '-3.5rem',
+              bottom: '-1rem',
               left: '1rem',
-              fontSize: '4rem',
+              fontSize: '2rem',
+              paddingRight: '1rem',
             }}
           >
             {text}
