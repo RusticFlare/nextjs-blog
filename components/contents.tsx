@@ -29,7 +29,7 @@ export default function Contents({
         <a style={{
               position: 'relative',
               width: '100%',
-              height: '10rem',
+              height: '14rem',
               marginBottom: '16px',
               alignItems: 'center',
               justifyContent: 'center',
@@ -39,7 +39,7 @@ export default function Contents({
             maxWidth='36rem'
             style={{
               width: '100%',
-              height: '10rem',
+              height: '14rem',
             }}
             transforms={['modulate=brightness:85']}
           />
