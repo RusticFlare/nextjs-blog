@@ -26,7 +26,7 @@ export default function Post({
       <Head>
         <title>{post.title}</title>
       </Head>
-      <article>
+      <article style={{padding: '0 1rem'}}>
         <h1 className={utilStyles.headingXl}>{post.title}</h1>
         <div className={utilStyles.lightText}>
           <Date dateString={post.publishedAt} />
