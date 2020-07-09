@@ -5,7 +5,13 @@ import Contents from 'components/contents'
 
 export default function Posts({ posts, person }) {
   return (
-    <Layout person={person}>
+    <Layout
+      person={person}
+      openGraph={{
+        title: 'Blog by ' + person.name,
+        image: person.blogOpenGraphImage
+      }}
+    >
       <Head>
         <title>Posts</title>
       </Head>

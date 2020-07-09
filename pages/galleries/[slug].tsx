@@ -6,7 +6,13 @@ import { GetStaticProps, GetStaticPaths } from 'next'
 
 export default function Gallery({ gallery, person }) {
   return (
-    <Layout person={person}>
+    <Layout
+      person={person}
+      openGraph={{
+        title: gallery.name + ' by ' + person.name,
+        image: gallery.openGraphImage
+      }}
+    >
       <Head>
         <title>{gallery.name}</title>
       </Head>

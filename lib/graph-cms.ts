@@ -17,6 +17,9 @@ query ($slug: String) {
       width
       height
     }
+    openGraphImage: linkImage {
+      url(transformation: {image: {resize: {width: 1200, height: 1200, fit: crop}}})
+    }
   }
 }
 `
@@ -43,6 +46,9 @@ query ($slug: String) {
     title
     content
     publishedAt
+    openGraphImage: linkImage {
+      url(transformation: {image: {resize: {width: 1200, height: 1200, fit: crop}}})
+    }
   }
 }
 `
@@ -59,6 +65,7 @@ export async function getPost(slug: string) {
     contentHtml,
     title: post.title,
     publishedAt: post.publishedAt,
+    openGraphImage: post.openGraphImage,
   })
 }
 
@@ -122,10 +129,16 @@ query ($id: ID) {
       socialMedia
       url
     }
+    blogOpenGraphImage: blogImage {
+      url(transformation: {image: {resize: {width: 1200, height: 1200, fit: crop}}})
+    }
     blogImage {
       handle
       width
       height
+    }
+    galleryOpenGraphImage: galleryImage {
+      url(transformation: {image: {resize: {width: 1200, height: 1200, fit: crop}}})
     }
     galleryImage {
       handle
