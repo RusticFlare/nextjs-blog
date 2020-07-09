@@ -5,9 +5,14 @@ import Contents from 'components/contents'
 
 export default function Home({ galleries, person }) {
   return (
-    <Layout person={person}>
+    <Layout
+      person={person}
+      openGraph={{
+        image: person.galleryOpenGraphImage
+      }}
+    >
       <Head>
-        <title>{person.name}</title>
+        <title>{'Gallery by ' + person.name}</title>
       </Head>
       <Contents
         contents={galleries.map(gallery => ({

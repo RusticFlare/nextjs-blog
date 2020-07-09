@@ -13,18 +13,23 @@ export default function Post({
     title: string
     publishedAt: string
     contentHtml: string
+    openGraphImage: { url: string }
   }
   person: {
     name: string,
     profilePicture: { handle: string, width: number, height: number }
-    openGraphImage: { url: string }
     socialMediaProfiles: { socialMedia: string, url: string }[]
   }
 }) {
   return (
-    <Layout person={person}>
+    <Layout
+      person={person}
+      openGraph={{
+        image: post.openGraphImage
+      }}
+    >
       <Head>
-        <title>{post.title}</title>
+        <title>{post.title + ' by ' + person.name}</title>
       </Head>
       <article style={{padding: '0 1rem'}}>
         <h1 className={utilStyles.headingXl}>{post.title}</h1>
