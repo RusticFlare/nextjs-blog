@@ -25,12 +25,11 @@ export default function Post({
     <Layout
       person={person}
       openGraph={{
-        title: post.title + ' by ' + person.name,
         image: post.openGraphImage
       }}
     >
       <Head>
-        <title>{post.title}</title>
+        <title>{post.title + ' by ' + person.name}</title>
       </Head>
       <article style={{padding: '0 1rem'}}>
         <h1 className={utilStyles.headingXl}>{post.title}</h1>

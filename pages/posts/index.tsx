@@ -8,12 +8,11 @@ export default function Posts({ posts, person }) {
     <Layout
       person={person}
       openGraph={{
-        title: 'Blog by ' + person.name,
         image: person.blogOpenGraphImage
       }}
     >
       <Head>
-        <title>Posts</title>
+        <title>{'Posts by ' + person.name}</title>
       </Head>
       <Contents
         contents={posts.map(post => ({

@@ -19,7 +19,6 @@ export default function Layout({
     socialMediaProfiles: { socialMedia: string, url: string }[]
   }
   openGraph: {
-    title: string
     image: { url: string }
   }
   home?: boolean
@@ -35,7 +34,6 @@ export default function Layout({
         <meta name="msapplication-TileColor" content="#ffc40d"/>
         <meta name="theme-color" content="#ffffff"/>
         <meta property="og:image" content={openGraph.image.url}/>
-        <meta name="og:title" content={openGraph.title} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <header className={styles.header}>

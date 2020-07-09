@@ -9,7 +9,6 @@ export default function Home({ person }) {
     <Layout
       person={person}
       openGraph={{
-        title: person.name,
         image: person.openGraphImage
       }}
       home

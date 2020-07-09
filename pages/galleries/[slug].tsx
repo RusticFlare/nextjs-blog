@@ -9,12 +9,11 @@ export default function Gallery({ gallery, person }) {
     <Layout
       person={person}
       openGraph={{
-        title: gallery.name + ' by ' + person.name,
         image: gallery.openGraphImage
       }}
     >
       <Head>
-        <title>{gallery.name}</title>
+        <title>{gallery.name + ' by ' + person.name}</title>
       </Head>
       <ImageGallery photos={gallery.images} />
     </Layout>

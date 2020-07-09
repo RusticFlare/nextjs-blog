@@ -8,12 +8,11 @@ export default function Home({ galleries, person }) {
     <Layout
       person={person}
       openGraph={{
-        title: 'Gallery by ' + person.name,
         image: person.galleryOpenGraphImage
       }}
     >
       <Head>
-        <title>{person.name}</title>
+        <title>{'Gallery by ' + person.name}</title>
       </Head>
       <Contents
         contents={galleries.map(gallery => ({
