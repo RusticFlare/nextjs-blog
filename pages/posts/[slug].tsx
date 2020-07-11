@@ -4,6 +4,9 @@ import Date from 'components/date'
 import utilStyles from 'styles/utils.module.css'
 import { GetStaticProps, GetStaticPaths } from 'next'
 import { getPerson, getAllPosts, getPost } from 'lib/graph-cms'
+import unified from 'unified'
+import parse from 'remark-parse'
+import remark2react from 'remark-react'
 
 export default function Post({
   post,
@@ -12,7 +15,7 @@ export default function Post({
   post: {
     title: string
     publishedAt: string
-    contentHtml: string
+    content: string
     openGraphImage: { url: string }
   }
   person: {
@@ -21,6 +24,10 @@ export default function Post({
     socialMediaProfiles: { socialMedia: string, url: string }[]
   }
 }) {
+  const remark: any = unified()
+    .use(parse)
+    .use(remark2react)
+    .processSync(post.content);
   return (
     <Layout
       person={person}
@@ -36,7 +43,9 @@ export default function Post({
         <div className={utilStyles.lightText}>
           <Date dateString={post.publishedAt} />
         </div>
-        <div className={utilStyles.blog} dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
+        <div className={utilStyles.blog}>
+          {remark.result}
+        </div>
       </article>
     </Layout>
   )

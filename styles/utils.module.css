@@ -59,3 +59,10 @@
   max-width: 100%;
   max-height: calc((100vw - 40px) / (16/9));
 }
+
+.blog blockquote {
+  background: #f9f9f9;
+  border-left: 0.5em solid #ccc;
+  margin: 0px;
+  padding: 0.5em;
+}
