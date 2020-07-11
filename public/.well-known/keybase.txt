@@ -1,0 +1,68 @@
+==================================================================
+https://keybase.io/rusticflare
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://jamesbaker.page
+  * I am rusticflare (https://keybase.io/rusticflare) on keybase.
+  * I have a public key with fingerprint F747 AD40 A217 718B CFF6  D9CF D9F3 A83E 7D94 3E04
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01010382b9873c89b2fa083e79cafb31ef78cc060966339ed4072a339c1149280b2e0a",
+      "fingerprint": "f747ad40a217718bcff6d9cfd9f3a83e7d943e04",
+      "host": "keybase.io",
+      "key_id": "d9f3a83e7d943e04",
+      "kid": "01010382b9873c89b2fa083e79cafb31ef78cc060966339ed4072a339c1149280b2e0a",
+      "uid": "5fc0a1922d7adb8b29ce4fa119cc2519",
+      "username": "rusticflare"
+    },
+    "service": {
+      "hostname": "jamesbaker.page",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1594478733,
+  "expire_in": 157680000,
+  "prev": "e6e4b0b858a0fc4c9e0c6a2af619884793aa7b888dcc478d4269d2a6b698d7eb",
+  "seqno": 53,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.1.13
+Comment: https://keybase.io/crypto
+
+yMIvAnicrZJbSFRBGMd37eK6akovBknZKTDS5Nz2nJl9sBupRSn0kNmFZWbOnPXo
+urudc1wTMSsqK9JKpKCLXaUHo0SsDAxKexEhrTCoCKkU6YKRGGnQZY7UW4/NPHwz
+8/2/33dhHiXPcnndr9b3HF++Vu929z9sqXQFEgYbajgc0ao5fw1XTmcMDWnUsgPl
+hsb5OV5gWwIihkCVCIBY1BEPJKpCgnQsCVRXASG8wkNFkSRINZlXRcRORBBkKAIe
+i5RHXDanG+EgNaOmEbYZVldlFTEtEgVVFQAmuq5okOga1CXk4DUoS5SXWWBpxHIi
+WHEYWTTHiLA3dgnMlPcP/X+uu3IG59MJjwQoihorGwMsQkJlHQkCJET0CdARWtQM
+owrK1GalZRtEDyGTcrXZHHPEDEKd2TrN/BGVMWNhVE7NnCgKUkaImhE7QiIh5iy1
+7ajld4Lt6qijrqI48IcTwEZYY9NkETFqWkYkzPkFpiS24YAFH5RllXUtZXN0T9Qw
+acBwFD5VATxbTh4aY0iqUBnzGPgA4nUiE0h5oiAR6YoAAZBVKCGkYgCARggDarKo
+QE1EClYg0FSKOaez3eEI5/exVDYKMqZlBMPIrnT67nmwc7bL7XXNnRPnfDOXNyH1
+7+c73Bn/a/tk6gE5qX/k5b4tnryuD28LpsY+pB9NaxtUez2tT1pWZjWMd0/tHb2Z
++O5px/fU3nnqooNl934WrJnjed9RcyXL/NXcV3hhuilvYqxk7ErbrmduIfdt3NKN
+fnfbiebHtzI6vzaWJLRydb1NJdbW2oueiZSU6fHh+Ru/3dnvPfRi4FPVZO7mJf2r
+FmS0r84vmiw+ODLy+od97uTi0P2hpkvelOFrH3OOrbhZemJTl3Tanz/7gKcvbThW
+1B/PJfWGlllXz+uXfW/SP7V+WQfrb38e7SqtzlzY4o0/FeYGnhcn77heV5EctdvP
+vk4vTD7SOLTtTMaNifrEzLU+a/rWyN3LgQ2Dub8BM3dFTA==
+=5sRq
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/rusticflare
+
+==================================================================
