@@ -1,7 +1,5 @@
 import { GraphQLClient } from 'graphql-request'
 import 'cross-fetch/polyfill'
-import remark from 'remark'
-import html from 'remark-html'
 
 const graphcms = new GraphQLClient(process.env.GRAPH_CMS_API, { headers: { authorization: `Bearer ${process.env.GRAPH_CMS_TOKEN}`} })
 
@@ -56,17 +54,7 @@ query ($slug: String) {
 export async function getPost(slug: string) {
   const { post } = await graphcms.request(postQuery, { slug: slug })
 
-  const processedContent = await remark()
-    .use(html)
-    .process(post.content)
-  const contentHtml = processedContent.toString()
-
-  return ({
-    contentHtml,
-    title: post.title,
-    publishedAt: post.publishedAt,
-    openGraphImage: post.openGraphImage,
-  })
+  return post
 }
 
 const allGalleriesQuery = `
