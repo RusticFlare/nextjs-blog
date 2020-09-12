@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Text from 'react'
 import styles from './layout.module.css'
 import utilStyles from 'styles/utils.module.css'
 import Link from 'next/link'
@@ -11,6 +10,7 @@ export default function Layout({
   person,
   openGraph,
   home,
+  wide,
 }: {
   children: React.ReactNode
   person: {
@@ -25,7 +25,7 @@ export default function Layout({
   wide?: boolean
 }) {
   return (
-    <div className={styles.container} style={{maxWidth: '72rem'}}>
+    <div className={styles.container} style={wide ? {maxWidth: '72rem'} : {}}>
       <Head>
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
