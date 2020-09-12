@@ -11,6 +11,7 @@ export default function Gallery({ gallery, person }) {
       openGraph={{
         image: gallery.openGraphImage
       }}
+      wide
     >
       <Head>
         <title>{gallery.name + ' by ' + person.name}</title>
