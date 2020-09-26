@@ -17,6 +17,7 @@ export default function Posts({ posts, person }) {
       <Contents
         contents={posts.map(post => ({
           text: post.title,
+          publishedAt: post.publishedAt,
           image: post.image,
           href: "/posts/[slug]",
           as: `/posts/${post.slug}`,

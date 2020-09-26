@@ -23,11 +23,13 @@ export default function Home({ person }) {
               image: person.galleryImage,
               href: "/galleries",
               text: "Gallery",
+              publishedAt: null,
             },
             {
               image: person.blogImage,
               href: "/posts",
               text: "Blog",
+              publishedAt: null,
             }
           ]
         }
