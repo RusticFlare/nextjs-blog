@@ -84,6 +84,7 @@ query ($personId: ID) {
   person(where: {id: $personId}) {
     posts: blogPosts {
       title
+      publishedAt
       slug
       image: linkImage {
         handle

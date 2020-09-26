@@ -1,3 +1,4 @@
+import Date from 'components/date'
 import GraphImage from 'graphcms-image'
 import Link from 'next/link'
 
@@ -13,6 +14,7 @@ export default function Contents({
     href: string
     as?: string
     text: string
+    publishedAt: string
   }[]
 }) {
   return (<div
@@ -24,7 +26,7 @@ export default function Contents({
       justifyContent: 'center',
     }}
   >
-    {contents.map(({image, href, as, text}) => (
+    {contents.map(({image, href, as, text, publishedAt}) => (
       <Link href={href} as={as} >
         <a style={{
               position: 'relative',
@@ -55,6 +57,21 @@ export default function Contents({
           >
             {text}
           </h2>
+          {publishedAt ? (
+            <h3
+              style={{
+                color: 'white',
+                position: 'absolute',
+                bottom: '-1rem',
+                left: '1rem',
+                fontSize: '1rem',
+                paddingRight: '1rem',
+              }}
+            >
+              <Date dateString={publishedAt} />
+            </h3>
+            ) : null
+          }
         </a>
       </Link>
     ))}
