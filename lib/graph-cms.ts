@@ -60,7 +60,7 @@ export async function getPost(slug: string) {
 const allGalleriesQuery = `
 query ($personId: ID) {
   person(where: {id: $personId}) {
-    galleries {
+    galleries(orderBy: sortingOrder_ASC) {
       slug
       name
       image: linkImage {
