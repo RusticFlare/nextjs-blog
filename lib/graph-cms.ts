@@ -82,7 +82,7 @@ export async function getAllGalleries() {
 const allPostsQuery = `
 query ($personId: ID) {
   person(where: {id: $personId}) {
-    posts: blogPosts {
+    posts: blogPosts(orderBy: publishedAt_DESC) {
       title
       publishedAt
       slug
