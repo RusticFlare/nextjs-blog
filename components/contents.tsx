@@ -62,9 +62,9 @@ export default function Contents({
               style={{
                 color: 'white',
                 position: 'absolute',
-                bottom: '-1rem',
+                bottom: '-0.8rem',
                 left: '1rem',
-                fontSize: '1rem',
+                fontSize: '0.8rem',
                 paddingRight: '1rem',
               }}
             >
