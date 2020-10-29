@@ -1,5 +1,6 @@
 import { GraphQLClient } from 'graphql-request'
 import 'cross-fetch/polyfill'
+import ImageGallery from 'components/image-gallery'
 
 const graphcms = new GraphQLClient(process.env.GRAPH_CMS_API, { headers: { authorization: `Bearer ${process.env.GRAPH_CMS_TOKEN}`} })
 
@@ -9,6 +10,7 @@ query ($slug: String) {
     name
     images {
       src: url
+      src2000: url(transformation: {image: {resize: {width: 2000, fit: max}}})
       src1600: url(transformation: {image: {resize: {width: 1600, fit: max}}})
       src1024: url(transformation: {image: {resize: {width: 1024, fit: max}}})
       src800: url(transformation: {image: {resize: {width: 800, fit: max}}})
@@ -28,6 +30,7 @@ export async function getGallery(slug: string) {
 
   gallery.images.forEach(image => {
     image.src = image.src
+    image.src2000 = image.src2000
     image.srcSet = [
       image.src500 + " " + Math.min(500, image.width)  + "w",
       image.src800 + " " + Math.min(800, image.width)  + "w",

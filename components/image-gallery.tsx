@@ -4,6 +4,7 @@ import Carousel, { Modal, ModalGateway } from "react-images"
 
 export default function ImageGallery({ photos }: { photos: {
   src: string;
+  src2000: string;
   width: number;
   height: number;
 }[] }) {
@@ -58,7 +59,7 @@ export default function ImageGallery({ photos }: { photos: {
           >
             <Carousel
               currentIndex={currentImage}
-              views={photos.map(x => ({source: x.src}))}
+              views={photos.map(x => ({source: x.src2000}))}
               styles={{
                 container: base => ({
                   ...base,
