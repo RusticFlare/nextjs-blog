@@ -8,6 +8,7 @@ query ($slug: String) {
   gallery(where: {slug: $slug}) {
     name
     images {
+      src: url
       src1600: url(transformation: {image: {resize: {width: 1600, fit: max}}})
       src1024: url(transformation: {image: {resize: {width: 1024, fit: max}}})
       src800: url(transformation: {image: {resize: {width: 800, fit: max}}})
@@ -26,7 +27,7 @@ export async function getGallery(slug: string) {
   const { gallery } = await graphcms.request(allPhotosQuery, { slug: slug })
 
   gallery.images.forEach(image => {
-    image.src = image.src1600
+    image.src = image.src
     image.srcSet = [
       image.src500 + " " + Math.min(500, image.width)  + "w",
       image.src800 + " " + Math.min(800, image.width)  + "w",
