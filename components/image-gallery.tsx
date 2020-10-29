@@ -1,9 +1,10 @@
 import React, { useState, useCallback } from "react"
-import Gallery from "react-photo-gallery"
+import Gallery from "components/gallery/Gallery"
 import Carousel, { Modal, ModalGateway } from "react-images"
 
 export default function ImageGallery({ photos }: { photos: {
   src: string;
+  src2000: string;
   width: number;
   height: number;
 }[] }) {
@@ -25,7 +26,7 @@ export default function ImageGallery({ photos }: { photos: {
     backgroundColor: 'white',
     boxShadow: '0 1px 6px rgba(0, 0, 0, 0.18)',
     color: '#6B778C',
-  
+
     '&:hover, &:active': {
       backgroundColor: 'white',
       color: '#091E42',
@@ -37,12 +38,17 @@ export default function ImageGallery({ photos }: { photos: {
     },
   });
 
+  const galleryProps = {
+    photos: photos,
+    onClick: openLightbox,
+  }
+
   return (
     <div>
-      <Gallery photos={photos} onClick={openLightbox} />
+      <Gallery {...galleryProps} />
       <ModalGateway>
         {viewerIsOpen ? (
-          <Modal 
+          <Modal
             onClose={closeLightbox}
             styles={{
               blanket: base => ({
@@ -53,7 +59,7 @@ export default function ImageGallery({ photos }: { photos: {
           >
             <Carousel
               currentIndex={currentImage}
-              views={photos.map(x => ({source: x.src}))}
+              views={photos.map(x => ({source: x.src2000}))}
               styles={{
                 container: base => ({
                   ...base,

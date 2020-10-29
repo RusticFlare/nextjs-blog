@@ -25,3 +25,13 @@ img {
   max-width: 100%;
   display: block;
 }
+
+.react-photo-gallery--gallery img {
+  cursor: pointer;
+  right: 0;
+  bottom: 0;
+}
+
+.react-photo-gallery--gallery div {
+  margin: 1px;
+}
