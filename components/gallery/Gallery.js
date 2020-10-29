@@ -125,7 +125,7 @@ Gallery.propTypes = {
 };
 
 Gallery.defaultProps = {
-  margin: 0,
+  margin: 2,
   direction: 'row',
   targetRowHeight: 300,
 };
