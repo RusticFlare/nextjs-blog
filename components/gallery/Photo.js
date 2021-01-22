@@ -2,15 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import PropTypes from 'prop-types';
 
-const imgWithClick = { cursor: 'pointer' };
-
 const Photo = ({ index, onClick, photo, margin, direction, top, left, key }) => {
-  const imgStyle = { margin: margin, display: 'block' };
-  if (direction === 'column') {
-    imgStyle.position = 'absolute';
-    imgStyle.left = left;
-    imgStyle.top = top;
-  }
 
   const handleClick = event => {
     onClick(event, { photo, index });
@@ -19,7 +11,6 @@ const Photo = ({ index, onClick, photo, margin, direction, top, left, key }) => 
   return (
     <Image
       key={key}
-      style={onClick ? { ...imgStyle, ...imgWithClick } : imgStyle}
       {...photo}
       onClick={onClick ? handleClick : null}
       quality={100}
