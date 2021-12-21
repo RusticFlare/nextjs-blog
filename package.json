@@ -15,7 +15,7 @@
     "date-fns": "^2.27.0",
     "graphcms-image": "^1.1.0-beta4",
     "graphql-request": "^2.0.0",
-    "gray-matter": "^4.0.2",
+    "gray-matter": "^4.0.3",
     "next": "^10.0.0",
     "react": "16.14.0",
     "react-dom": "16.14.0",
